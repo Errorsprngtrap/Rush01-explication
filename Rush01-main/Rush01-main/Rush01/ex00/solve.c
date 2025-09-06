@@ -10,20 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	check_row(int *tab, int *views, int size, int i)
+int	check_row(int *tab, int *views, int size, int i) // droite a gauche 
 {
 	int	j;
-	int	max_left;
-	int	max_right;
-	int	n_left;
-	int	n_right;
+	int	max_left;  // plus haut bâtiment vu depuis la gauche
+	int	max_right;  // plus haut bâtiment vu depuis la droite
+	int	n_left;  // plus bas bâtiment vu depuis la gauche
+	int	n_right;  // plus bas  bâtiment vu depuis la droite
 
+	//initialisation
 	max_left = 0;
 	max_right = 0;
 	n_left = 0;
 	n_right = 0;
-	j = -1;
-	while (++j < size)
+	j = -1; // on commence à -1 pour l'incrémenter dans la boucle
+	while (++j < size) 
 	{
 		if (tab[i / size * size + j] > max_left && ++n_left)
 			max_left = tab[i / size * size + j];
@@ -34,22 +35,23 @@ int	check_row(int *tab, int *views, int size, int i)
 		&& n_right == views[size * 3 + i / size]);
 }
 
-int	check_column(int *tab, int *views, int size, int i)
+int	check_column(int *tab, int *views, int size, int i) // bas en haut
 {
 	int	j;
-	int	max_top;
-	int	max_bottom;
-	int	n_top;
-	int	n_bottom;
+	int	max_left;  // plus haut bâtiment vu depuis la gauche
+	int	max_right;  // plus haut bâtiment vu depuis la droite
+	int	n_left;  // plus bas bâtiment vu depuis la gauche
+	int	n_right;  // plus bas  bâtiment vu depuis la droite
 
+	//initialisation
 	max_top = 0;
 	max_bottom = 0;
 	n_top = 0;
 	n_bottom = 0;
 	j = -1;
-	while (++j < size)
+	while (++j < size) // tant que j plus petit que size size
 	{
-		if (tab[size * j + i % size] > max_top && ++n_top)
+		if (tab[size * j + i % size] > max_top && ++n_top) //??
 			max_top = tab[size * j + i % size];
 		if (tab[size * (size - j - 1) + i % size] > max_bottom && ++n_bottom)
 			max_bottom = tab[size * (size - j - 1) + i % size];
@@ -60,7 +62,7 @@ int	check_column(int *tab, int *views, int size, int i)
 
 int	solve(int *tab, int *views, int size, int i)
 {
-	int	n;
+	int	n; 
 	int	j;
 
 	if (i == size * size)
@@ -81,6 +83,6 @@ int	solve(int *tab, int *views, int size, int i)
 				return (1);
 		}
 	}
-	tab[i] = 0;
+	tab[i] = 0; 
 	return (0);
 }
