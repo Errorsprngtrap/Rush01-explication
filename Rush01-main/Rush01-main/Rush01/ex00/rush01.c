@@ -52,7 +52,7 @@ int	*read_views(char *str, int size)
 			return (NULL); // en cas d erreur on libere la memoire et on retourne NULL
 		}
 	}
-	return (views); // on retourne le tableau des vues
+	return (views); // on retourne le tableau de int
 }
 
 int	*init_tab(int size) // initialise le tableau a 0

@@ -26,7 +26,7 @@ int	check_row(int *tab, int *views, int size, int i) // droite a gauche
 	j = -1; // on commence à -1 pour l'incrémenter dans la boucle
 	while (++j < size) 
 	{
-		if (tab[i / size * size + j] > max_left && ++n_left)
+		if (tab[i / size * size + j] > max_left && ++n_left) 
 			max_left = tab[i / size * size + j];
 		if (tab[i / size * size + size - j - 1] > max_right && ++n_right)
 			max_right = tab[i / size * size + size - j - 1];
@@ -60,7 +60,7 @@ int	check_column(int *tab, int *views, int size, int i) // bas en haut
 		&& n_bottom == views[size + i % size]);
 }
 
-int	solve(int *tab, int *views, int size, int i)
+int	solve(int *tab, int *views, int size, int i) //i = 0
 {
 	int	n; 
 	int	j;
@@ -73,14 +73,14 @@ int	solve(int *tab, int *views, int size, int i)
 		j = -1;
 		while (++j < size)
 			if (tab[i / size * size + j] == n || tab[size * j + i % size] == n)
-				j = size + 1;
+				j = size + 1; //on qssigne a j la valeur de size + 1
 		if (j == size)
 		{
 			tab[i] = n;
 			if ((i % size != size - 1 || check_row(tab, views, size, i))
 				&& (i / size != size - 1 || check_column(tab, views, size, i))
 				&& solve(tab, views, size, i + 1))
-				return (1);
+				return (1); //  dans le cas ou on a trouve une solution on retourne 1
 		}
 	}
 	tab[i] = 0; 
