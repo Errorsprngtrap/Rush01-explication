@@ -38,10 +38,10 @@ int	check_row(int *tab, int *views, int size, int i) // droite a gauche
 int	check_column(int *tab, int *views, int size, int i) // bas en haut
 {
 	int	j;
-	int	max_left;  // plus haut bâtiment vu depuis la gauche
-	int	max_right;  // plus haut bâtiment vu depuis la droite
-	int	n_left;  // plus bas bâtiment vu depuis la gauche
-	int	n_right;  // plus bas  bâtiment vu depuis la droite
+	int	max_top;     // plus haut bâtiment vu depuis le haut
+	int	max_bottom;  // plus haut bâtiment vu depuis le bas
+	int	n_top;       // nombre de bâtiments visibles depuis le haut
+	int	n_bottom;    // nombre de bâtiments visibles depuis le bas
 
 	//initialisation
 	max_top = 0;
@@ -84,5 +84,5 @@ int	solve(int *tab, int *views, int size, int i) //i = 0
 		}
 	}
 	tab[i] = 0; 
-	return (0);
+	return (0); // en cas d echec on retourne 0
 }
