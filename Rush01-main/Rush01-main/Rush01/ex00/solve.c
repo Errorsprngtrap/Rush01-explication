@@ -81,13 +81,14 @@ int	solve(int *tab, int *views, int size, int i) //i = 0
 		j = -1;
 		while (++j < size)
 			if (tab[i / size * size + j] == n || tab[size * j + i % size] == n)
-				j = size + 1; //on qssigne a j la valeur de size + 1
-		if (j == size)
+				j = size + 1; // doublon trouvé → valeur invalide donc on incremente j
+		if (j == size) 	// Si pas de doublon, on peut placer la valeur
 		{
-			tab[i] = n;
+			tab[i] = n; // placer la valeur
+			// Vérifier les contraintes si fin de ligne ou de colonne atteinte
 			if ((i % size != size - 1 || check_row(tab, views, size, i))
 				&& (i / size != size - 1 || check_column(tab, views, size, i))
-				&& solve(tab, views, size, i + 1))
+				&& solve(tab, views, size, i + 1))  // continuer récursivement à la case suivante
 				return (1); //  dans le cas ou on a trouve une solution on retourne 1
 		}
 	}
