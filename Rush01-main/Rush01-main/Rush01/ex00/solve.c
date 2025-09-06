@@ -53,7 +53,7 @@ int	check_column(int *tab, int *views, int size, int i) // bas en haut
 	// ++j veut dire incremementer j avant de l utiliser
 	while (++j < size) // tant que j plus petit que size size
 	{
-		// Depuis le haut : si bâtiment plus haut trouvé, on l’ajssigne a max_top
+		// Depuis le haut : si bâtiment plus haut trouvé, on l’assigne a max_top
 		if (tab[size * j + i % size] > max_top && ++n_top) //??
 			max_top = tab[size * j + i % size];
 		// Depuis le bas : si bâtiment plus haut trouvé, on l’ajssigne a max_bottom

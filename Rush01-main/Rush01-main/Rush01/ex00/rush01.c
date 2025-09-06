@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdlib.h>
-//#include <unistd.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 int		solve(int *tab, int *views, int size, int i); // prototype de la fonction solve
 void	display_tab(int *tab, int size); // prototype de la fonction display_tab
